@@ -34,14 +34,5 @@ db.collection('Users').findOneAndDelete({
   console.log(result);
 });
 
-// db.collection('Users').find({
-//   _id: new ObjectID('5ac395bbfaad8b394f700a97')
-// }).toArray().then((docs) => {
-//   console.log('Users');
-//   console.log(JSON.stringify(docs, undefined, 2));
-// }, (err) => {
-//   console.log('Unable to fetch users', err);
-// });
-
   //db.close();
 });
