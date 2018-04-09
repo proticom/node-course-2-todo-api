@@ -48,7 +48,6 @@ app.get('/todos/:id', (req, res) => {
           //if no todo - send back 404 with empty body
           res.status(404).send()
         }
-        console.log('Todo By Id', todo);
       }).catch((e) => res.status(400).send());
     }
 });
