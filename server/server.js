@@ -38,7 +38,7 @@ app.get('/todos/:id', (req, res) => {
   var id = req.params.id
   // Valid id using isValid
   if(!ObjectID.isValid(id)) {
-      // 404 - send back emtpy Second
+      // 404 - send back empty
       res.status(404).send();
     } else {
       // FindByID
@@ -54,6 +54,28 @@ app.get('/todos/:id', (req, res) => {
     }
 });
 
+//delete /todos/12345
+app.delete('/todos/:id', (req, res) => {
+  // get the id
+  var id = req.params.id
+
+  // validate the id -> not valid? return 404
+  if(!ObjectID.isValid(id)) {
+      // 404 - send back empty
+      res.status(404).send();
+    } else {
+      // FindByID
+      Todo.findByIdAndRemove(id).then((todo) => {
+        if (todo) {
+          //if todo - send it back
+          res.status(200).send({todo})
+        } else {
+          //if no todo - send back 404 with empty body
+          res.status(404).send()
+        }
+      }).catch((e) => res.status(400).send());
+    }
+});
 
 app.listen(port, () => {
   console.log(`Started on port ${port}`);
