@@ -192,6 +192,7 @@ module.exports = {
         "no-trailing-spaces": "off",
         "no-undef-init": "error",
         "no-undefined": "off",
+        "no-undef": "off",
         "no-underscore-dangle": "off",
         "no-unmodified-loop-condition": "error",
         "no-unneeded-ternary": "error",
